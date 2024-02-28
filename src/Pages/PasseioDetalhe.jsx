@@ -21,7 +21,6 @@ export default function PasseioDetalhe() {
     console.log(passeio)
   return (
     <>
-      <Head title='Passeio' />
       <div className='relative w-full min-h-screen block'>
         <div className='w-full flex justify-center '>
           <Menu />

@@ -80,10 +80,10 @@ export default function Welcome(props) {
                             <label className='ml-2' htmlFor='infantil'>Educação Infantil</label><br/>
 
                             <input type="checkbox" id="Fundamental I" onChange={(e) => handleCheckboxChange(e, 'faixaEtarias')}/>
-                            <label className='ml-2' htmlFor='funtamental1'>Ensino Fundamental I</label>
+                            <label className='ml-2'  htmlFor='funtamental1'>Ensino Fundamental I</label> <br />
                             
                             <input type="checkbox" id="Fundamental II" onChange={(e) => handleCheckboxChange(e, 'faixaEtarias')}/>
-                            <label className='ml-2' htmlFor='funtamental2'>Ensino Fundamental II</label>
+                            <label className='ml-2' htmlFor='funtamental2'>Ensino Fundamental II</label> <br />
                             
                             <input type="checkbox" id="Ensino Médio" onChange={(e) => handleCheckboxChange(e, 'faixaEtarias')}/>
                             <label className='ml-2' htmlFor='medio'>Ensino Médio</label>
@@ -100,7 +100,7 @@ export default function Welcome(props) {
                     </div>
 
                     {/* Renderizar os cards dos passeios filtrados */}
-                    <div className='max-w-[1000px] rounded-md flex justify-center ml-5 gap-10 flex-wrap'>                                
+                    <div className='max-w-[920px] rounded-md flex justify-center ml-5 gap-10 flex-wrap'>                                
                         {passeiosFiltrados.map(item => (
                                 <Card key={item.id} img={item.img} title={item.titulo} id={item.id}/>
                         ))}
@@ -116,8 +116,9 @@ export default function Welcome(props) {
 
 export function Card(props){
     const handleClick = (id) => {
+        console.log(id)
         localStorage.setItem('passeioId', id);
-        window.location.href = `/passeio/`;
+        window.location.href = `/passeio`;
     };
     
     return(

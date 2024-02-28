@@ -11,7 +11,7 @@ import Assessoria from './Pages/Assessoria.jsx'
 const router = createBrowserRouter([
   {path: '/', element: <Welcome />},
   {path: '/portfolio', element: <Portfolio />},
-  {path: '/passeios', element: <PasseioDetalhe />},
+  {path: '/passeio', element: <PasseioDetalhe />},
   {path: '/assessoria', element: <Assessoria />},
 ])
 
