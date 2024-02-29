@@ -1,31 +1,36 @@
-import React from 'react';
-import { usePasseios } from './../PasseiosContext'; // Importe o contexto de passeios
+import { useState, useEffect } from "react";
+import { ref } from "firebase/storage";
+import { storage, db } from "./../Firebase";
+import { addDoc, collection, getDocs } from "@firebase/firestore";
+import { v4 as uuidv4 } from "uuid";
+import logo from './../img/logo.png'
 
 export function NossosPasseios() {
-  const { passeios } = usePasseios(); // Use o hook usePasseios para acessar o contexto de passeios
+  const [data,setData] = useState([])
+
+  const getData = async () =>{
+    const valRef = collection(db,'db')
+    const dataDb = await getDocs(valRef)
+    console.log(dataDb)
+    const allData = dataDb.docs.map(val=>({...val.data(),id:val.id}))
+    setData(allData)
+    
+}
+
+useEffect(()=>{
+    getData()
+})
 
   return (
     <div>
-      <h2>Lista de Passeios</h2>
-      <ul>
-        {passeios.map((passeio, index) => (
-          <li key={index}>
-            <h3>{passeio.nome}</h3>
-            <p>Instituição: {passeio.instituicao}</p>
-            <p>Local: {passeio.local}</p>
-            <div>
-              <h4>Fotos:</h4>
-              <ul>
-                {passeio.imagens.map((imagem, idx) => (
-                  <li key={idx}>
-                    <img src={imagem} alt={`Imagem ${idx}`} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {
+        data.map(item=><div>
+          <div>{item.nome}</div>
+          <div>{item.local}</div>
+          <div>{item.instituicao}</div>
+          <div><img src={item.imageUrls[0]} /></div>
+        </div>)
+      }
     </div>
   );
 }
