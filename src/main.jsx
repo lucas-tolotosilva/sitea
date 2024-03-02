@@ -11,6 +11,7 @@ import Assessoria from './Pages/Assessoria.jsx'
 import Login from './Components/Login.jsx'
 import Dashboard from './Pages/Dashboard.jsx'
 import { NossosPasseios } from './Pages/NossosPasseios.jsx'
+import { NossosPasseiosPasseio } from './Pages/NossosPasseiosPasseio.jsx'
 
 const router = createBrowserRouter([
   {path: '/', element: <Welcome />},
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   {path: '/login', element: <Login />},
   {path: '/dashboard', element: <Dashboard />},
   {path: '/nossos-passeios', element: <NossosPasseios />},
+  {path: '/nossos-passeios/passeio', element: <NossosPasseiosPasseio />},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

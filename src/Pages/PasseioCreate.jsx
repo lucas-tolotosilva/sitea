@@ -7,11 +7,11 @@ import logo from './../img/logo.png'
 
 function App() {
     const [imageUploads, setImageUploads] = useState([]);
-    const [imageUrls, setImageUrls] = useState([]);
     const [formData, setFormData] = useState({
+        id: uuidv4(), // Gerando um ID único para o novo cadastro
         nome: "",
         instituicao: "",
-        local: ""
+        data: ""
     });
 
     const handleChange = (e) => {
@@ -21,42 +21,31 @@ function App() {
         });
     };
 
-    const uploadFiles = () => {
-        imageUploads.forEach((imageUpload) => {
+    const handleUploadAndSubmit = async () => {
+        // Upload das imagens
+        const uploadedImageUrls = await Promise.all(imageUploads.map(async (imageUpload) => {
             const imageRef = ref(storage, `images/${imageUpload.name + uuidv4()}`);
-            uploadBytes(imageRef, imageUpload).then((snapshot) => {
-                getDownloadURL(snapshot.ref).then((url) => {
-                    setImageUrls((prev) => [...prev, url]);
-                });
-            });
-        });
-    };
+            await uploadBytes(imageRef, imageUpload);
+            const downloadURL = await getDownloadURL(imageRef);
+            return downloadURL;
+        }));
 
-    const handleFormSubmit = async () => {
-        // Combine formData with imageUrls
-        const formDataCombined = { ...formData, imageUrls: imageUrls };
+        // Combine os dados do formulário com os URLs das imagens e o ID gerado
+        const formDataWithImages = { ...formData, imageUrls: uploadedImageUrls };
 
-        // Add the combined data to the database
+        // Envie os dados do formulário para o banco de dados
         const valRef = collection(db, 'db');
-        await addDoc(valRef, formDataCombined);
+        await addDoc(valRef, formDataWithImages);
         alert("Dado adicionado");
 
-        // Limpa os campos do formulário e as imagens carregadas após o envio
+        // Limpe os campos do formulário e as imagens carregadas após o envio
         setFormData({
+            id: uuidv4(), // Gerando um novo ID único para o próximo cadastro
             nome: "",
             instituicao: "",
-            local: ""
+            data: ""
         });
-        setImageUrls([]);
         setImageUploads([]);
-    };
-
-    const handleUploadAndSubmit = () => {
-        // Primeiro, carrega as imagens
-        uploadFiles();
-
-        // Depois, envia os dados do formulário
-        handleFormSubmit();
     };
 
     const handleFileChange = (event) => {
@@ -73,12 +62,12 @@ function App() {
             <div className='flex w-[500px] items-center flex-col  rounded-md shadow-2xl py-10'>
                 <img className='w-40 h-40' src={logo} />
                 <div className='w-full  px-20'>
-                    <label>Nome</label> <br />
+                    <label>Nome do Passeio</label> <br />
                     <input
                         className='w-full mb-10 border-b-2 border-grayT focus:outline-none focus:border-yellow-300'
                         type="text"
                         name="nome"
-                        placeholder="Nome"
+                        placeholder="Nome do Passeio"
                         value={formData.nome}
                         onChange={handleChange}
                     />
@@ -95,13 +84,13 @@ function App() {
                     />
                 </div>
                 <div className='w-full px-20'>
-                    <label>Local</label> <br />
-                    <input
+                    <label>Data</label> <br />
+                    <input  
                         className='w-full mb-10 border-b-2 border-grayT focus:outline-none focus:border-yellow-300'
-                        type="text"
-                        name="local"
-                        placeholder="Local"
-                        value={formData.local}
+                        type="date"
+                        name="data"
+                        placeholder="Data"
+                        value={formData.data}
                         onChange={handleChange}
                     />
                 </div>

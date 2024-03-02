@@ -54,7 +54,7 @@ export function Sobre () {
     return (
         <div className="w-full flex justify-center">
 
-            <div className=" w-[1300px] flex mb-36">
+            <div className=" w-[1280px] flex mb-36">
 
                 <div className="w-6/12">
                     <div className="w-full h-full flex items-center mr-12 mb-36 relative">

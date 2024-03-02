@@ -101,7 +101,7 @@ export default function Assessoria() {
 
 function Circulo({ img, onClick }) {
   return (
-    <div className='w-72 h-72 rounded-full bg-white mx-2 transition-transform cursor-pointer' onClick={onClick}>
+    <div className='w-60 h-60 rounded-full bg-white mx-2 transition-transform cursor-pointer' onClick={onClick}>
       {img && <img src={img} alt='Imagem do Slide' className='w-full h-full object-cover rounded-full' />}
     </div>
     

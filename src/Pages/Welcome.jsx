@@ -43,11 +43,11 @@ export default function Welcome(props) {
             </div>
 
             <div className='w-full flex justify-center  bg-yelowT py-20'>
-                <div className='max-w-6xl'>
+                <div className='max-w-[1200px]'>
                     <span className='text-[#6B685B] opacity-50 font-bold'>Sobre Nós</span>
                     <h2 className='font-bold text-5xl text-blackk mb-8'>Venha saber mais sobre a nossa empresa</h2>
 
-                    <p className='text-justify text-xl font-medium'>
+                    <p className='text-justify text-lg font-medium'>
                         A <b>A+ Assessoria e Eventos</b> é uma empresa autônoma de Assessoria e Recreação fundada em 2020.
                         <br /><br />
                         Nossa <b>missão</b>, enquanto assessoria, é proporcionar uma divulgação efetiva e ampla dos nossos colaboradores no meio esportivo; enquanto recreação, é proporcionar diversão, entretenimento e renovação, da mente e corpo, sem deixar de lado a absorção de conhecimento e enriquecimento intelectual adaptados para todas as idades, desde os pequenos ao ensino médio, técnico e superior.

@@ -59,16 +59,16 @@ export default function Formulario() {
             <form ref={form} onSubmit={sendEmail} className='w-2/4 relative flex justify-center items-center bg-white shadow-2xl shadow-[#00000011] rounded-lg'>
                 <div className='w-4/5'>
                     <label className='text-gray2 text-lg font-bold '>Nome</label> <br />
-                    <input name="user_name" className='outline-none border-0 bg-whitee rounded-sm border-b-4 border-[#A4A4A4] w-full mb-10' placeholder='Insira o seu nome' required></input><br />
+                    <input name="user_name" className='focus:border-yellow-300 outline-none border-0 px-2 py-2 bg-whitee rounded-sm border-b-4 border-[#A4A4A4] w-full mb-10' placeholder='Insira o seu nome' required></input><br />
 
                     <label className='text-gray2 text-lg font-bold'>Escola/Instituição</label><br />
-                    <input name="escola" className='outline-none border-0 bg-whitee rounded-sm border-b-4 border-[#A4A4A4] w-full mb-10' placeholder='Insira sua Escola/Instituição' required></input><br />
+                    <input name="escola" className='focus:border-yellow-300 outline-none border-0 px-2 py-2 bg-whitee rounded-sm border-b-4 border-[#A4A4A4] w-full mb-10' placeholder='Insira sua Escola/Instituição' required></input><br />
 
                     <label className='text-gray2 text-lg font-bold'>E-mail</label><br />
-                    <input name="user_email" className='outline-none border-0 bg-whitee rounded-sm border-b-4 border-[#A4A4A4] w-full mb-10' placeholder='Insira o seu e-mail' required></input><br />
+                    <input name="user_email" className='focus:border-yellow-300 outline-none border-0 px-2 py-2 bg-whitee rounded-sm border-b-4 border-[#A4A4A4] w-full mb-10' placeholder='Insira o seu e-mail' required></input><br />
 
                     <label className='text-gray2 text-lg font-bold'>Mensagem</label><br />
-                    <textarea name="message" className='outline-none border-0 bg-whitee rounded-sm border-b-4 border-[#A4A4A4] w-full mb-10' placeholder='Insira a mensagem' required></textarea><br />
+                    <textarea name="message" className='focus:border-yellow-300 outline-none border-0 px-2 py-2 bg-whitee rounded-sm border-b-4 border-[#A4A4A4] w-full mb-10' placeholder='Insira a mensagem' required></textarea><br />
                         
                     <div className="w-full flex justify-center">
                         <button type='submit' className='bg-[#F0CC2B] rounded-md text-md font-bold py-3 px-10 mb-8'>Enviar</button>

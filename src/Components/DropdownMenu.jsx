@@ -8,7 +8,7 @@ export default function DropdownMenu(props) {
         <li className="my-2 ">
           <Link to="/portfolio">Portfólio</Link>
         </li>
-        <Link to="/blog"><li className="my-2 pt-2 border-t-2 w-full">Nossos <br /> Passeios</li></Link>
+        <Link to="/nossos-passeios"><li className="my-2 pt-2 border-t-2 w-full">Nossos <br /> Passeios</li></Link>
       </ul>
     </div>
   );
