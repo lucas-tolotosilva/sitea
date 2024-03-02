@@ -16,7 +16,7 @@ import { NossosPasseiosPasseio } from './Pages/NossosPasseiosPasseio.jsx'
 const router = createBrowserRouter([
   {path: '/', element: <Welcome />},
   {path: '/portfolio', element: <Portfolio />},
-  {path: '/passeio', element: <PasseioDetalhe />},
+  {path: '/passeio/', element: <PasseioDetalhe />},
   {path: '/assessoria', element: <Assessoria />},
   {path: '/login', element: <Login />},
   {path: '/dashboard', element: <Dashboard />},

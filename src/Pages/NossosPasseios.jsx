@@ -19,6 +19,8 @@ export function NossosPasseios() {
 
   }
 
+
+
   useEffect(() => {
     getData()
   })
@@ -42,7 +44,7 @@ export function NossosPasseios() {
               <Card key={item.id} img={item.imageUrls[0]} nome={item.nome} id={item.id} data={item.data} instituicao={item.instituicao} />
             ))}
           </div>
-          
+
 
         </div>
       </div>
@@ -56,8 +58,17 @@ export function Card(props) {
     console.log(id)
     localStorage.setItem('passeiooId', id);
     window.location.href = `/nossos-passeios/passeio`;
-};
-console.log(props.data)
+  };
+  function formatarData(data) {
+    // Divida a string da data usando o delimitador '-' e obtenha o ano, mês e dia
+    const partes = data.split('-');
+    const ano = partes[0];
+    const mes = partes[1];
+    const dia = partes[2];
+
+    // Retorne a data formatada no formato 'DD-MM-YYYY'
+    return `${dia}-${mes}-${ano}`;
+  }
 
   return (
     <div className='w-[280px] h-[350px] bg-white overflow-hidden shadow-2xl rounded-md cursor-pointer' onClick={() => handleClick(props.id)}>
@@ -65,9 +76,9 @@ console.log(props.data)
         <img className='h-[290px] w-full object-cover' src={props.img} />
       </div>
       <div className='h-[40px] w-full pl-5 flex flex-col justify-center'>
-        
-        <span className='font-bold block text-xl'>{props.instituicao}</span> 
-        <span className='font-bold text-base text-slate-500'>{props.data}</span>
+
+        <span className='font-bold block text-xl'>{props.instituicao}</span>
+        <span className='font-bold text-base text-slate-500'>{formatarData(props.data)}</span>
       </div>
 
     </div>
