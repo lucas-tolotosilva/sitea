@@ -29,7 +29,7 @@ export function NossosPasseios() {
     <div className='relative w-full min-h-screen overflow-x-hidden'>
       <div className='w-full flex justify-center '>
         <Menu />
-        <div className='w-screen flex justify-center text-7xl font-bold text-blackk mt-52'>
+        <div className='w-screen flex justify-center text-7xl font-bold text-blackk mt-44'>
           <div>
             <h1 className='tracking-widest border-b-8 border-[#FFEB90] '>NOSSOS PASSEIOS</h1>
           </div>
@@ -37,7 +37,7 @@ export function NossosPasseios() {
       </div>
 
       {/* Renderizar os cards dos passeios filtrados */}
-      <div className='w-full rounded-md flex justify-center py-20  gap-10 flex-wrap overflow-hidden'>
+      <div className='w-full rounded-md flex justify-center pb-20 pt-16  gap-10 flex-wrap overflow-hidden'>
         <div className="w-[1100px] flex justify-center">
           <div className="flex gap-10">
             {data.map(item => (

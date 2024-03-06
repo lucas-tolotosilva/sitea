@@ -12,6 +12,7 @@ import Login from './Components/Login.jsx'
 import Dashboard from './Pages/Dashboard.jsx'
 import { NossosPasseios } from './Pages/NossosPasseios.jsx'
 import { NossosPasseiosPasseio } from './Pages/NossosPasseiosPasseio.jsx'
+import Formulario from './Components/Formulario.jsx';
 
 const router = createBrowserRouter([
   {path: '/', element: <Welcome />},

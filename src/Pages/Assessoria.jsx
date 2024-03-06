@@ -55,20 +55,20 @@ export default function Assessoria() {
         <div className='relative w-full min-h-screen block'>
           <div className='w-full flex justify-center '>
               <Menu />
-              <div className='w-screen flex justify-center text-7xl font-bold text-blackk mt-52'>
+              <div className='w-screen flex justify-center text-7xl font-bold text-blackk mt-44'>
                   <div>
                       <h1 className='tracking-widest border-b-8 border-[#FFEB90] '>ASSESSORIA</h1>
                   </div>
               </div>
           </div>
   
-          <div className='w-full flex justify-center mt-5'>
+          <div className='w-full flex justify-center -mt-2'>
             {startIndex > 0 && (
               <button className=' px-4 py-2 rounded-l' onClick={prevPage}>
                 <FaAngleLeft />
               </button>
             )}
-            <div className='flex my-20 overflow-hidden relative'>
+            <div className='flex mt-20 overflow-hidden relative'>
               {visibleItems.map((item, index) => (
                 <div key={item.id} className='relative flex flex-col items-center'>
                   <Circulo img={item.img} onClick={() => handleImageClick(item.id)} nome={item.nome}/>

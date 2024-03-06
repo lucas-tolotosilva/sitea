@@ -45,7 +45,7 @@ export default function Welcome(props) {
         <div className='relative w-full min-h-screen '>
             <div className='w-full flex justify-center '>
                 <Menu />
-                <div className='w-screen flex justify-center text-7xl font-bold text-blackk mt-52'>
+                <div className='w-screen flex justify-center text-7xl font-bold text-blackk mt-44'>
                     <div>
                         <h1 className='tracking-widest border-b-8 border-[#FFEB90] '>PORTFÓLIO</h1>
                     </div>

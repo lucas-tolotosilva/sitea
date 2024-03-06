@@ -1,19 +1,44 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { animateScroll } from 'react-scroll';
 import Menu from './../Components/Menu';
 import Footer from './../Components/Footer';
 import gradientLaranja from './../img/radial-gradient.png'
-import maos from './../img/maos.png'
+import imgHeader from './../img/img-header.png'
 import { Sobre } from './../Components/Sobre';
 import Formulario from './../Components/Formulario';
+
 export default function Welcome(props) {
-       
-      
+    
+    console.log(window.location.href.split('#')[1])
+
+    useEffect(() => {
+        const scrollToContact = () => {
+            const contatoElement = document.getElementById("contato");
+            if (contatoElement) {
+                animateScroll.scrollTo(contatoElement.offsetTop, {
+                    smooth: true,
+                    duration: 500
+                });
+            }
+        };
+
+        const hash = window.location.hash;
+        if (hash === '#contato') {
+            scrollToContact();
+        } else if (hash === '' && window.location.pathname === '/') {
+            // Se estamos na página inicial sem um hash na URL, rolar para o topo da página
+            animateScroll.scrollToTop({
+                smooth: true,
+                duration: 500
+            });
+        }
+    }, []);
+
     return (
         
         <>
             
-            <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-100 selection:bg-red-500 selection:text-white">
+            <div className="relative overflow-hidden sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-100 selection:bg-red-500 selection:text-white">
                 <div className="sm:fixed sm:top-0 sm:right-0 text-right">
             
                 </div>
@@ -26,24 +51,24 @@ export default function Welcome(props) {
             
 
                 {/* Fundo translúcido */}
-                <div className='w-screen relative h-screen bg-whiteT z-20 backdrop-blur-3xl'>
-                    <div className='w-full h-full flex items-center justify-center mt-12'> 
-                        <div className='text-7xl font-bold text-blackk'>
+                <div className='w-screen relative h-screen bg-whiteT z-20 backdrop-blur-3xl flex justify-center'>
+                    <div className='w-[1280px] h-full flex items-center justify-center px-20 ml-5 mt-8 gap-20'> 
+                        <div className='text-7xl font-bold text-blackk '>
                             <h1 >Aqui temos <br/> o melhor dos <br/> dois mundos:</h1>
-                            <div className='flex items-center justify-center gap-5 bg-yelowT text-3xl font-semibold rounded-lg p-2 mt-8'>
+                            <div className='flex items-center justify-center gap-5 bg-yelowT text-2xl font-semibold rounded-lg p-2 mt-8'>
                                 <span>ASSESSORIA</span> |
                                 <span>RECREAÇÃO</span> 
                             </div>
                         </div>
-                        <div className=''><img src={maos} /></div>
+                        <div className=''><img src={imgHeader} className='h-[500px] w-[500px]' /></div>
                     </div>
                 </div>
 
 
             </div>
 
-            <div className='w-full flex justify-center  bg-yelowT py-20'>
-                <div className='max-w-[1200px]'>
+            <div className='w-full flex justify-center bg-yelowT py-20'>
+                <div className='w-[1000px]'>
                     <span className='text-[#6B685B] opacity-50 font-bold'>Sobre Nós</span>
                     <h2 className='font-bold text-5xl text-blackk mb-8'>Venha saber mais sobre a nossa empresa</h2>
 
@@ -71,13 +96,16 @@ export default function Welcome(props) {
                 <div className='bg-[#FFEB90] opacity-60 w-2/4 h-1 rounded-full' ></div>   
             </div>
             
-            <div className='w-full flex flex-col justify-center items-center bg-whiteT py-20'>
-                <div className='w-6xl pr-80'>  
-                    <span id="contato" className='text-[#6B685B] opacity-50  font-bold'>Nossos Serviços</span>
-                    <h2 className='font-bold text-5xl text-blackk mb-16'>Conheça mais sobre nossos serviços</h2>
+            <div className='w-full flex justify-center items-center bg-whiteT py-20'>
+                <div className='w-[1000px]'>
+                    <div className='w-full '>  
+                        <span id="contato" className='text-[#6B685B] opacity-50  font-bold'>Nossos Serviços</span>
+                        <h2 className='font-bold text-5xl text-blackk mb-16'>Conheça mais sobre nossos serviços</h2>
+                    </div>
+                    <div className='w-full flex justify-center'>
+                        <Formulario />
+                    </div>
                 </div>
-                
-                <Formulario />
             </div>
             
 

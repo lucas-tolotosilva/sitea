@@ -1369,7 +1369,7 @@ export const listaPasseios = [
         conhecimento sobre os trabalhadores da ferrovia que aproximaram a produção cafeeira no interior 
         paulista ao porto de Santos, por ser o berço destes trabalhadores.  
         `,
-        incluso: 'Ingresso e transporte. Podendo, ou não, conter alimentação',
+        incluso: 'Ingresso, alimentação e transporte.',
         cortesia: '01 cortesia a cada 10 pagantes.',
         periodo: 'Visita é, em média, 7h.',
         duracao: ['Integral'],
